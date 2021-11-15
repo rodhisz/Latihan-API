@@ -53,7 +53,7 @@
                     <td>Rp. {{number_format($wisata['harga'])}}</td>
                     <td>{{$wisata['kota']}}</td>
                     <td>{{$wisata['provinsi']}}</td>
-                    <td>{{$wisata['alamat']}}</td>
+                    <td class="text-wrap">{{$wisata['alamat']}}</td>
                     <td>{{$wisata['waktu_buka']}}</td>
                 </tr>
                 @endforeach
