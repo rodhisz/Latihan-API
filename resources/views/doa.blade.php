@@ -26,8 +26,8 @@
   <body>
     <div class="container text-center pading">
         <h1>Kumpulan Doa-Doa Harian</h1>
-        <a class="btn btn-success" href="/post-data">Post Data</a>
-        <a class="btn btn-warning" href="/kategori">Add Kategori</a>
+        <a href="/">Back to Home</a>
+        <p class="mt-3">Latihan get data "kumpulan doa-doa harian" dari API Public</p>
     </div>
 
     <div class="container pd">

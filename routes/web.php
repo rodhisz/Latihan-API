@@ -15,11 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('home');
+});
 
-Route::get('/', [DoaController::class, 'doa'])->name('doa');
+
+Route::get('/doa', [DoaController::class, 'doa'])->name('doa');
 
 Route::get('/post-data', [DoaController::class, 'postData']);
 Route::post('/posting', [DoaController::class, 'posting'])->name('posting');

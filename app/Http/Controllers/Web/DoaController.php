@@ -12,7 +12,7 @@ class DoaController extends Controller
     {
         $response = Http::get('https://doa-doa-api-ahmadramadhan.fly.dev/api')->json();
         // dd($response);
-        return view('welcome', compact('response'));
+        return view('doa', compact('response'));
     }
 
     public function postData()

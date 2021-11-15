@@ -26,6 +26,8 @@
   <body>
     <div class="container text-center pading">
         <h1>Data Wisata</h1>
+        <a href="/">Back to Home</a>
+        <p class="mt-3">Latihan get data wisata dari API ICT</p>
     </div>
 
     <div class="container pd">
