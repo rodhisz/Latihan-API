@@ -14,45 +14,28 @@
         .pading{
             padding-top: 100px
         }
-        .pd{
+
+        .custom{
             padding-top: 50px;
-            padding-bottom: 100px
-        }
-        .tbl{
-            vertical-align: middle;
+            width: 40%;
         }
     </style>
   </head>
   <body>
     <div class="container text-center pading">
-        <h1>Kumpulan Doa-Doa Harian</h1>
-        <a class="btn btn-success" href="/post-data">Post Data</a>
-        <a class="btn btn-warning" href="/kategori">Add Kategori</a>
+        <h1>Kategori</h1>
+        <a href="/">Back to Home</a>
     </div>
 
-    <div class="container pd">
-        <table class="table">
-            <thead class="text-center">
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Doa</th>
-                    <th scope="col">Ayat</th>
-                    <th scope="col">Latin</th>
-                    <th scope="col">Arti</th>
-                </tr>
-            </thead>
-            <tbody class="text-center ">
-                @foreach ($response as $res)
-                <tr class="tbl">
-                    <td>{{$res['id']}}</td>
-                    <td><strong>{{$res['doa']}}</strong></td>
-                    <td>{{$res['ayat']}}</td>
-                    <td>{{$res['latin']}}</td>
-                    <td>{{$res['artinya']}}</td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
+    <div class="container custom">
+        <form action="/add-kategori" method="POST">
+            @csrf
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Nama Kategori</label>
+                <input type="Text" name="nama_kategori" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
     </div>
 
     <!-- Optional JavaScript; choose one of the two! -->
