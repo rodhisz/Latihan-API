@@ -54,7 +54,7 @@
                     <td><img width="150px" class="rounded" src="{{$wisata['image']}}" alt=""></td>
                     <td>{{$wisata['kategori_id']}}</td>
                     <td>{{$wisata['nama_wisata']}}</td>
-                    <td>{{$wisata['harga']}}</td>
+                    <td>Rp. {{number_format($wisata['harga'])}}</td>
                     <td>{{$wisata['kota']}}</td>
                     <td>{{$wisata['provinsi']}}</td>
                     <td>{{$wisata['alamat']}}</td>
