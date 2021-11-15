@@ -19,7 +19,8 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::post('/registrasi', [AuthController::class, 'registrasi']);
+Route::post('/registrasi', [AuthController::class, 'daftar']);
+Route::post('login', [AuthController::class, 'login']);
 
 
 

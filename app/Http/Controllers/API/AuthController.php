@@ -13,13 +13,16 @@ use Symfony\Component\HttpFoundation\Response;
 
 class AuthController extends Controller
 {
+    //Cara 2 (pesan error satu satu)
     public function registrasi(Request $request)
     {
         $pesan = [
             'name.required'         => "Nama Tidak Boleh Kosong",
+
             'email.required'        => "Email Tidak Boleh Kosong",
             'email.unique'          => "Email Telah Terdaftar",
             'email.email'           => "Email Tidak Valid",
+
             'password.required'     => "Password Tidak Boleh Kosong",
             'password.min'          => "Password Tidak Boleh Kurang Dari 4",
             'password.confirmed'    => "Password Tidak Cocok",
@@ -45,6 +48,80 @@ class AuthController extends Controller
         return response()->json([
             'status'   => 1,
             'pesan'    => "Halo $request->name Registrasi Anda Berhasil!",
+            'data'     => $user
+        ],Response::HTTP_OK);
+    }
+
+    //Cara 2 (pesan error untuk semuanya)
+    public function daftar(Request $request)
+    {
+        $pesan = [
+            'name.required'         => "Nama Tidak Boleh Kosong",
+
+            'email.required'        => "Email Tidak Boleh Kosong",
+            'email.unique'          => "Email Telah Terdaftar",
+            'email.email'           => "Email Tidak Valid",
+
+            'password.required'     => "Password Tidak Boleh Kosong",
+            'password.min'          => "Password Tidak Boleh Kurang Dari 4",
+            'password.confirmed'    => "Password Tidak Cocok",
+        ];
+
+        $request->validate([
+            'name'      => 'required',
+            'email'     => 'required|unique:users|email',
+            'password'  => 'required|min:4|confirmed',
+        ], $pesan);
+
+        $user = User::create([
+            'name'      => $request->name,
+            'email'     => $request->email,
+            'password'  => Hash::make($request->password)
+        ]);
+
+        return response()->json([
+            'status'   => 1,
+            'pesan'    => "Halo $request->name Registrasi Anda Berhasil!",
+            'data'     => $user
+        ],Response::HTTP_OK);
+    }
+
+    public function login(Request $request){
+        $pesan = [
+            'email.required'        => "Email Tidak Boleh Kosong",
+            'password.required'     => "Password Tidak Boleh Kosong",
+        ];
+
+        $validasi = Validator::make($request->all(),[
+            'email'     => 'required',
+            'password'  => 'required',
+        ], $pesan);
+
+        if($validasi->fails()){
+            $val = $validasi->errors()->all();
+            return $this -> responError(0, $val[0]);
+        }
+
+        $user = User::where('email', $request->email)->first();
+
+        //cek dua duanya
+        if(!$user || !Hash::check($request->password, $user->password)){
+            return $this -> responError(0, "Email atau Password Salah!");
+        }
+
+        //cek HANYA email
+        // if(!$user){
+        //     return $this -> responError(0, "Email tidak terdaftar!");
+        // }
+
+        //cek HANYA password
+        // if(!Hash::check($request->password, $user->password)){
+        //     return $this -> responError(0, "Password Salah!");
+        // }
+
+        return response()->json([
+            'status'   => 1,
+            'pesan'    => "Halo $user->name, Selamat Datang!",
             'data'     => $user
         ],Response::HTTP_OK);
     }

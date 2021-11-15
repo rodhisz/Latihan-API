@@ -23,3 +23,5 @@ Route::get('/post-data', [DoaController::class, 'postData']);
 Route::post('/posting', [DoaController::class, 'posting'])->name('posting');
 Route::get('/kategori', [DoaController::class, 'kategori'])->name('kategori');
 Route::post('/add-kategori', [DoaController::class, 'addKategori'])->name('addKategori');
+
+
