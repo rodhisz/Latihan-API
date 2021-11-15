@@ -36,15 +36,12 @@
                 <tr class="tbl">
                     <th scope="col">#</th>
                     <th scope="col">Gambar</th>
-                    <th scope="col">Kategori ID</th>
                     <th scope="col">Nama Wisata</th>
                     <th scope="col">Harga</th>
                     <th scope="col">Kota</th>
                     <th scope="col">Provinsi</th>
                     <th scope="col">Alamat</th>
                     <th scope="col">Waktu Buka</th>
-                    <th scope="col">Latitude</th>
-                    <th scope="col">Longitude</th>
                 </tr>
             </thead>
             <tbody class="text-center ">
@@ -52,15 +49,12 @@
                 <tr class="tbl">
                     <td>{{$wisata['id']}}</td>
                     <td><img width="150px" class="rounded" src="{{$wisata['image']}}" alt=""></td>
-                    <td>{{$wisata['kategori_id']}}</td>
                     <td>{{$wisata['nama_wisata']}}</td>
                     <td>Rp. {{number_format($wisata['harga'])}}</td>
                     <td>{{$wisata['kota']}}</td>
                     <td>{{$wisata['provinsi']}}</td>
                     <td>{{$wisata['alamat']}}</td>
                     <td>{{$wisata['waktu_buka']}}</td>
-                    <td>{{$wisata['latitude']}}</td>
-                    <td>{{$wisata['longitude']}}</td>
                 </tr>
                 @endforeach
             </tbody>
