@@ -26,5 +26,7 @@ Route::post('login', [AuthController::class, 'login']);
 //-->CRUD Resto dan Menu nya<--
 Route::post('/add/resto-dan-menu', [RestoranController::class, 'createRestoMenu']);
 
+Route::get('/resto/{id}', [RestoranController::class, 'getRestoMenu']);
+
 
 

@@ -35,18 +35,46 @@ class RestoranController extends Controller
         $resto->rating     = $request->rating;
         $resto->save();
 
-        $menu      = new Menu();
+        // $menu      = new Menu();
 
-        $menu->resto_id       = $resto->id;
-        $menu->nama_menu      = $request->nama_menu;
-        $menu->harga          = $request->harga;
-        $menu->nama_kategori  = $request->nama_kategori;
-        $menu->save();
+        // $menu->resto_id       = $resto->id;
+        // $menu->nama_menu      = $request->nama_menu;
+        // $menu->harga          = $request->harga;
+        // $menu->nama_kategori  = $request->nama_kategori;
+        // $menu->save();
+
+        foreach($request->list_menu as $value)
+        {
+            $menu = array(
+                'resto_id'      => $resto->id,
+                'nama_menu'     => $value['nama_menu'],
+                'harga'         => $value['harga'],
+                'nama_kategori' => $value['nama_kategori'],
+            );
+            Menu::create($menu);
+        }
+
+        $data = Menu::where('resto_id', $resto->id)->get();
 
         return response()->json([
             'status'   => 1,
             'pesan'    => "Menu Berhasil Ditambahkan!",
-            'data'     => $resto ,$menu
+            'Resto'    => $resto,
+            'Data'     => $data
+        ],Response::HTTP_OK);
+    }
+
+    public function getRestoMenu($id)
+    {
+        $resto = Restoran::where('id', $id)->get();
+
+        $data = Menu::where('resto_id', $id)->get();
+
+        return response()->json([
+            'status'   => 1,
+            'pesan'    => "Menu Berhasil Ditambahkan!",
+            'Resto'     => $resto,
+            'Menu'     => $data
         ],Response::HTTP_OK);
     }
 }

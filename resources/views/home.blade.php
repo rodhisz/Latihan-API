@@ -58,7 +58,7 @@
                 </a>
             </div>
 
-            <div class="col jarakk d-flex justify-content-center">
+            <div class="col d-flex justify-content-center">
                 <a class="ancor" href="/post-data">
                     <div class="card latar" style="width: 18rem;">
                         <img height="193px" src="https://images.unsplash.com/photo-1508921340878-ba53e1f016ec?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fHVzZXJ8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" class="card-img-top" alt="...">
@@ -69,7 +69,7 @@
                 </a>
             </div>
 
-            <div class="col jarak d-flex justify-content-center">
+            <div class="col d-flex justify-content-center">
                 <a class="ancor" href="/kategori">
                     <div class="card latar" style="width: 18rem;">
                         <img src="https://images.unsplash.com/photo-1472141521881-95d0e87e2e39?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y2F0ZWdvcmllc3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" class="card-img-top" alt="...">
@@ -80,12 +80,23 @@
                 </a>
             </div>
 
-            <div class="col jarak d-flex justify-content-center">
+            <div class="col d-flex justify-content-center">
                 <a class="ancor" href="/wisata">
                     <div class="card latar" style="width: 18rem;">
                         <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8bmF0dXJlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-text">Data Wisata</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col p-3 p-md-0 d-flex justify-content-center">
+                <a class="ancor" href="/login">
+                    <div class="card latar" style="width: 18rem;">
+                        <img src="https://images.unsplash.com/photo-1529539795054-3c162aab037a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-text">Login</h5>
                         </div>
                     </div>
                 </a>

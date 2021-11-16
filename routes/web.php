@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Web\DoaController;
+use App\Http\Controllers\WEB\LoginController;
 use App\Http\Controllers\Web\WisataController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,5 +29,8 @@ Route::get('/kategori', [DoaController::class, 'kategori'])->name('kategori');
 Route::post('/add-kategori', [DoaController::class, 'addKategori'])->name('addKategori');
 
 Route::get('/wisata', [WisataController::class, 'wisata'])->name('wisata');
+
+Route::get('/login', [LoginController::class, 'login']);
+Route::post('/datalogin', [LoginController::class, 'dataLogin'])->name('data');
 
 
