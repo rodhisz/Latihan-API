@@ -30,7 +30,7 @@ Route::post('/add-kategori', [DoaController::class, 'addKategori'])->name('addKa
 
 Route::get('/wisata', [WisataController::class, 'wisata'])->name('wisata');
 
-Route::get('/login', [LoginController::class, 'login']);
+Route::get('/login', [LoginController::class, 'login'])->name('data');
 Route::post('/datalogin', [LoginController::class, 'dataLogin'])->name('data');
 
 

@@ -58,7 +58,7 @@
 
     <div class="container custom">
         <p class="text-center">{{$response['message']}}</p>
-        <div class="d-inline-flex card">
+        <div class="card">
             <img src="https://media.istockphoto.com/photos/young-man-using-smart-phone-at-home-picture-id1278009593?b=1&k=20&m=1278009593&s=170667a&w=0&h=uCTPNkqE--LHcrjm14dtmg_NeOjLqi3_9hQfeM9xrVg=" alt="John" style="width:100%">
             <h2 class="mt-3">{{$response['data']['email']}}</h2>
             <p class="title">{{$response['data']['city']}}</p>
