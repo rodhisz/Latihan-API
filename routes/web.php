@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\Web\DoaController;
-use App\Http\Controllers\WEB\LoginController;
+use App\Http\Controllers\Web\LoginController;
 use App\Http\Controllers\Web\WisataController;
 use Illuminate\Support\Facades\Route;
 
