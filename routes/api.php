@@ -35,5 +35,7 @@ Route::get('/resto/{id}', [RestoranController::class, 'getRestoMenu']);
 //Get semua menu
 Route::get('/allmenu', [RestoranController::class, 'getAllMenu']);
 
+Route::put('/editresto', [RestoranController::class, 'editResto']);
+
 
 

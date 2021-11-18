@@ -164,7 +164,11 @@ class AuthController extends Controller
 
     public function editPassword(Request $request, $id)
     {
-        $user = User::findOrFail($id);
+        $user = User::where('id', $id)->first();
+
+        if(!$user){
+            return $this->responError(0, "User Tidak Ditemukan");
+        }
 
         if((!Hash::check($request->password, $user->password))) {
             return $this->responError(0, "Password Salah");

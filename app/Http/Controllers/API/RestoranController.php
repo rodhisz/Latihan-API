@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Menu;
 use App\Models\Restoran;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use Symfony\Component\HttpFoundation\Response;
 
 class RestoranController extends Controller
@@ -92,6 +93,41 @@ class RestoranController extends Controller
             'result'    => $menu
         ], Response::HTTP_NOT_FOUND);
 
+    }
+
+    public function editResto(Request $request, $id)
+    {
+        $resto = Restoran::where('id', $id)->first();
+
+        if(!$resto){
+            return $this->responError(0, "Resto Tidak Ditemukan");
+        }
+
+        $validasi = Validator::make($request->all(), [
+            'nama_resto'      => 'required',
+            'email'     => 'required',
+            'alamat'    => 'required',
+            'telp'      => 'required',
+        ]);
+
+        if($validasi->fails()){
+            $val = $validasi->errors()->all();
+            return $this->responError(0, $val[0]);
+        }
+
+        $resto->update([
+            'name'      =>  $request->name,
+            'email'     =>  $request->email,
+            'alamat'    =>  $request->alamat,
+            'telp'      =>  $request->telp,
+            'photo'     =>  $request->photo
+        ]);
+
+        return response()->json([
+            'status'   => 1,
+            'pesan'    => "Data Kamu Berhasil Diupdate",
+            'data'     => $resto
+        ],Response::HTTP_OK);
     }
 
     public function responError($sts, $pesan)
