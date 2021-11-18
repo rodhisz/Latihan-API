@@ -104,10 +104,10 @@ class RestoranController extends Controller
         }
 
         $validasi = Validator::make($request->all(), [
-            'nama_resto'      => 'required',
-            'email'     => 'required',
-            'alamat'    => 'required',
-            'telp'      => 'required',
+            'nama_resto' => 'required',
+            'alamat'     => 'required',
+            'telp'       => 'required',
+            'jam_buka'   => 'required',
         ]);
 
         if($validasi->fails()){
@@ -116,16 +116,15 @@ class RestoranController extends Controller
         }
 
         $resto->update([
-            'name'      =>  $request->name,
-            'email'     =>  $request->email,
-            'alamat'    =>  $request->alamat,
-            'telp'      =>  $request->telp,
-            'photo'     =>  $request->photo
+            'nama_resto' =>  $request->nama_resto,
+            'alamat'     =>  $request->alamat,
+            'telp'       =>  $request->telp,
+            'jam_buka'   =>  $request->jam_buka
         ]);
 
         return response()->json([
             'status'   => 1,
-            'pesan'    => "Data Kamu Berhasil Diupdate",
+            'pesan'    => "Data Resto Kamu Berhasil Diupdate",
             'data'     => $resto
         ],Response::HTTP_OK);
     }
