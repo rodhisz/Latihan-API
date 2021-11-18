@@ -14,7 +14,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 class AuthController extends Controller
 {
-    //Cara 2 (pesan error satu satu)
+    //Cara 1 (pesan error satu satu)
     public function registrasi(Request $request)
     {
         $pesan = [
