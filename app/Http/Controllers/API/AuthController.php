@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Response as FacadesResponse;
 use Illuminate\Support\Facades\Validator;
+use PhpParser\Node\Expr\FuncCall;
 use Symfony\Component\HttpFoundation\Response;
 
 class AuthController extends Controller
@@ -126,11 +127,81 @@ class AuthController extends Controller
         ],Response::HTTP_OK);
     }
 
+    public function editProfile(Request $request, $id)
+    {
+        $user = User::where('id', $id)->first();
+
+        if(!$user){
+            return $this->responError(0, "User Tidak Ditemukan");
+        }
+
+        $validasi = Validator::make($request->all(), [
+            'name'      => 'required',
+            'email'     => 'required',
+            'alamat'    => 'required',
+            'telp'      => 'required',
+        ]);
+
+        if($validasi->fails()){
+            $val = $validasi->errors()->all();
+            return $this->responError(0, $val[0]);
+        }
+
+        $user->update([
+            'name'      =>  $request->name,
+            'email'     =>  $request->email,
+            'alamat'    =>  $request->alamat,
+            'telp'      =>  $request->telp,
+            'photo'     =>  $request->photo
+        ]);
+
+        return response()->json([
+            'status'   => 1,
+            'pesan'    => "Data Kamu Berhasil Diupdate",
+            'data'     => $user
+        ],Response::HTTP_OK);
+    }
+
+    public function editPassword(Request $request, $id)
+    {
+        $user = User::findOrFail($id);
+
+        if((!Hash::check($request->password, $user->password))) {
+            return $this->responError(0, "Password Salah");
+        }
+
+        if(strcmp($request->get('password'), $request->get('new_password')) == 0) {
+            return response() -> json([
+                'status' => 0,
+                'pesan'  => "Password Tidak Boleh Sama"
+            ], 400);
+        }
+
+        $validasi = Validator::make($request->all(),[
+            'password'      => 'required',
+            'new_password'  => 'required|confirmed'
+        ]);
+
+        if($validasi->fails()){
+            $val = $validasi->errors()->all();
+            return $this->responError(0, $val[0]);
+        }
+
+        $user->password = Hash::make($request->new_password);
+        $user->save();
+
+        return response()->json([
+            'status'   => 1,
+            'pesan'    => "Password Kamu Berhasil Diedit",
+            'data'     => $user
+        ],Response::HTTP_OK);
+    }
+
     public function responError($sts, $pesan)
     {
         return response()->json([
             'status'    => $sts,
             'message'   => $pesan
-        ], Response::HTTP_OK);
+        ], Response::HTTP_UNAUTHORIZED);
     }
 }

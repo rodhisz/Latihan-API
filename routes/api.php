@@ -20,13 +20,19 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
+//Auth
 Route::post('/registrasi', [AuthController::class, 'daftar']);
-Route::post('login', [AuthController::class, 'login']);
+Route::post('/login', [AuthController::class, 'login']);
+Route::put('/edit/{id}', [AuthController::class, 'editProfile']);
+Route::put('/editpassword/{id}', [AuthController::class, 'editPassword']);
+
 
 //-->CRUD Resto dan Menu nya<--
 Route::post('/add/resto-dan-menu', [RestoranController::class, 'createRestoMenu']);
-
 Route::get('/resto/{id}', [RestoranController::class, 'getRestoMenu']);
+
+//Get semua menu
+Route::get('/allmenu', [RestoranController::class, 'getAllMenu']);
 
 
 
