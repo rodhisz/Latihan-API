@@ -39,8 +39,8 @@
   </head>
   <body>
     <div class="container text-center pading">
-        <h1>Latihan API</h1>
-        <h5>oleh : rsz</h5>
+        <h1>My API</h1>
+        <a href="/">Back to Home</a>
     </div>
 
 
@@ -48,66 +48,22 @@
         <div class="row text-center">
 
             <div class="col d-flex justify-content-center">
-                <a class="ancor" href="/doa">
+                <a class="ancor" href="/registerapi">
                     <div class="card latar" style="width: 18rem;">
                         <img src="https://media.istockphoto.com/photos/muslim-friday-mass-prayer-in-turkey-picture-id496347824?b=1&k=20&m=496347824&s=170667a&w=0&h=-RAde6GlkIszAU6tfJlikmjjuXVPEMS6-uwyaZeJ8dQ=" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-text">Doa</h5>
+                            <h5 class="card-text">Register</h5>
                         </div>
                     </div>
                 </a>
             </div>
 
             <div class="col d-flex justify-content-center">
-                <a class="ancor" href="/post-data">
+                <a class="ancor" href="/loginapi">
                     <div class="card latar" style="width: 18rem;">
                         <img height="193px" src="https://images.unsplash.com/photo-1508921340878-ba53e1f016ec?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fHVzZXJ8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-text">Post Data Register</h5>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col d-flex justify-content-center">
-                <a class="ancor" href="/kategori">
-                    <div class="card latar" style="width: 18rem;">
-                        <img src="https://images.unsplash.com/photo-1472141521881-95d0e87e2e39?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y2F0ZWdvcmllc3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-text">Tambah Kategori</h5>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col d-flex justify-content-center">
-                <a class="ancor" href="/wisata">
-                    <div class="card latar" style="width: 18rem;">
-                        <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8bmF0dXJlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-text">Data Wisata</h5>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col d-flex justify-content-center">
-                <a class="ancor" href="/login">
-                    <div class="card latar" style="width: 18rem;">
-                        <img src="https://images.unsplash.com/photo-1529539795054-3c162aab037a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" class="card-img-top" alt="...">
-                        <div class="card-body">
                             <h5 class="card-text">Login</h5>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col d-flex justify-content-center">
-                <a class="ancor" href="/myapi">
-                    <div class="card latar" style="width: 18rem;">
-                        <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1738&q=80" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-text">My API</h5>
                         </div>
                     </div>
                 </a>

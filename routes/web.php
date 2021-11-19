@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Web\ApiController;
 use App\Http\Controllers\Web\DoaController;
 use App\Http\Controllers\Web\LoginController;
 use App\Http\Controllers\Web\WisataController;
@@ -30,7 +31,13 @@ Route::post('/add-kategori', [DoaController::class, 'addKategori'])->name('addKa
 
 Route::get('/wisata', [WisataController::class, 'wisata'])->name('wisata');
 
-Route::get('/login', [LoginController::class, 'login'])->name('data');
-Route::post('/datalogin', [LoginController::class, 'dataLogin'])->name('data');
+Route::get('/login', [LoginController::class, 'login'])->name('login');
+Route::post('/datalogin', [LoginController::class, 'dataLogin'])->name('logindata');
+
+Route::get('/myapi', [ApiController::class, 'myApi'])->name('myapi');
+Route::get('/registerapi', [ApiController::class, 'registerApi'])->name('registerapi');
+Route::post('/daftarapi', [ApiController::class, 'daftarApi'])->name('daftarapi');
+Route::get('/loginapi', [ApiController::class, 'loginApi'])->name('loginapi');
+Route::post('/masukapi', [ApiController::class, 'masukApi'])->name('masukapi');
 
 
