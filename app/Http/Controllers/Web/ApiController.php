@@ -24,7 +24,7 @@ class ApiController extends Controller
             return view('Api.register',compact('response'));
         };
 
-        return view('Api.Login' , compact('response'));
+        return view('Api.login' , compact('response'));
     }
 
     public function loginApi()
