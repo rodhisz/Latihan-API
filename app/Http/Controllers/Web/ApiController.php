@@ -46,20 +46,19 @@ class ApiController extends Controller
         return view('Api.dataLoginApi' , compact('response'));
     }
 
-    public function editApi()
+    public function editApi($user_id)
     {
-        $response['status'] = 1;
+        $response = Http::get('https://latihan-api-rsz.herokuapp.com/api/edit/' . $user_id)->json();
         return view('Api.edit', compact('response'));
     }
 
-    public function editUserApi(Request $request)
+    public function editUserApi(Request $request, $user_id)
     {
         // $url = (env('APP_ENV') == 'local') ? env('APP_URL') . ":8000/api/edit/" . $id : env('APP_URL') . "/api/edit/" . $id;
 
         // $response = Http::post($url . $id, $request->input())->json();
 
-        $response = Http::post('https://latihan-api-rsz.herokuapp.com/api/edit/' . $request->user()->id, $request->input())->json();
-
+        $response = Http::post('https://latihan-api-rsz.herokuapp.com/api/edit/' . $user_id, $request->input())->json();
 
         if($response['status'] == 0){
             return view('Api.login',compact('response'));

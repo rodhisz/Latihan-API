@@ -201,9 +201,9 @@ class AuthController extends Controller
         ],Response::HTTP_OK);
     }
 
-    public function getUser($id)
+    public function getUser($user_id)
     {
-        $user = User::find($id);
+        $user = User::where('id', $user_id)->first();
 
         return response()->json([
             'status'    => 1,
