@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-    <title>Latihan API</title>
+    <title>Public API</title>
     <link rel="shortcut icon" href="https://media.istockphoto.com/vectors/api-icon-vector-sign-and-symbol-isolated-on-white-background-api-logo-vector-id1025651460?k=20&m=1025651460&s=170667a&w=0&h=_699JucZH9fWDfk-4PyNnFhXK--fXXxJQ0XyAgA60wk=" type="image/x-icon">
 
     <style>
