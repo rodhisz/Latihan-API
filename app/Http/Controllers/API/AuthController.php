@@ -157,7 +157,7 @@ class AuthController extends Controller
 
         return response()->json([
             'status'   => 1,
-            'pesan'    => "Data Kamu Berhasil Diupdate",
+            'massage'    => "Data Kamu Berhasil Diupdate",
             'data'     => $user
         ],Response::HTTP_OK);
     }

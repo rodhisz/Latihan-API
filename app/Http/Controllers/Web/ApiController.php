@@ -54,36 +54,14 @@ class ApiController extends Controller
 
     public function editUserApi(Request $request, $user_id)
     {
-        // $url = (env('APP_ENV') == 'local') ? env('APP_URL') . ":8000/api/edit/" . $id : env('APP_URL') . "/api/edit/" . $id;
-
-        // $response = Http::post($url . $id, $request->input())->json();
-
         $response = Http::put('https://latihan-api-rsz.herokuapp.com/api/edit/' . $user_id, $request->input())->json();
 
         if($response['status'] == 0){
-            return view('Api.login',compact('response'));
+            return view('Api.edit',compact('response'));
         };
 
-        return view('Api.login' , compact('response'));
+        return view('Api.dataLoginApi' , compact('response'));
     }
-
-    // public function authenticate(Request $request)
-    // {
-    //     $credentials = $request->validate([
-    //         'email' => ['required', 'email'],
-    //         'password' => ['required'],
-    //     ]);
-
-    //     if (Auth::attempt($credentials)) {
-    //         $request->session()->regenerate();
-
-    //         return redirect()->back();
-    //     }
-
-    //     return back()->withErrors([
-    //         'email' => 'The provided credentials do not match our records.',
-    //     ]);
-    // }
 
 
 }
