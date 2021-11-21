@@ -48,7 +48,7 @@ Route::get('/registerapi', [ApiController::class, 'registerApi'])->name('registe
 Route::post('/daftarapi', [ApiController::class, 'daftarApi'])->name('daftarapi');
 Route::get('/loginapi', [ApiController::class, 'loginApi'])->name('loginapi');
 Route::post('/masukapi', [ApiController::class, 'masukApi'])->name('masukapi');
-Route::get('/editapi/{id}', [ApiController::class, 'editApi'])->name('editapi');
+Route::get('/editapi/{user_id}', [ApiController::class, 'editApi'])->name('editapi');
 Route::put('/edituserapi', [ApiController::class, 'editUserApi'])->name('edituserapi');
 
 

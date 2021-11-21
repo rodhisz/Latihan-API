@@ -70,7 +70,7 @@
             <p>Your ID : {{$response['data']['id']}}</p>
         </div>
 
-        <a class="btn btn primary card" href="/editapi">Edit Profile</a>
+        <a class="btn btn primary card" href="{{route('editapi', $response['data']['id'])}}">Edit Profile</a>
     </div>
 
     <!-- Optional JavaScript; choose one of the two! -->

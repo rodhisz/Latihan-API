@@ -127,9 +127,9 @@ class AuthController extends Controller
         ],Response::HTTP_OK);
     }
 
-    public function editProfile(Request $request, $id)
+    public function editProfile(Request $request, $user_id)
     {
-        $user = User::where('id', $id)->first();
+        $user = User::where('id', $user_id)->first();
 
         if(!$user){
             return $this->responError(0, "User Tidak Ditemukan");

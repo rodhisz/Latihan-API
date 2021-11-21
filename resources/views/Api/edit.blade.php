@@ -29,10 +29,8 @@
     </div>
 
     <div class="container custom">
-        @if($response['status'] == 0)
-            <div class="alert alert-danger">{{$response['pesan']}}</div>
-        @endif
-        <form action="/edituserapi/{id}" method="post">
+
+        <form action="{{route('edituserapi', $response['data']['id'])}}" method="post">
             @csrf
             @method('PUT')
             <div class="mb-3">
