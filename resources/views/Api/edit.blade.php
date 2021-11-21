@@ -1,3 +1,5 @@
+{{dd($response)}}
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -35,23 +37,23 @@
             @method('PUT')
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Name</label>
-                <input type="name" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input type="name" name="name" class="form-control" value="{{ $response['data']['name'] }}" id="exampleInputEmail1" aria-describedby="emailHelp">
             </div>
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Email Address</label>
-                <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input type="email" name="email" class="form-control" value="{{ $response['data']['email'] }}" id="exampleInputEmail1" aria-describedby="emailHelp">
             </div>
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Alamat</label>
-                <input type="alamat" name="alamat" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input type="alamat" name="alamat" class="form-control" value="{{ $response['data']['alamat'] }}" id="exampleInputEmail1" aria-describedby="emailHelp">
             </div>
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Telp</label>
-                <input type="telp" name="telp" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input type="telp" name="telp" class="form-control" value="{{ $response['data']['telp'] }}" id="exampleInputEmail1" aria-describedby="emailHelp">
             </div>
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Photo</label>
-                <input type="photo" name="photo" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input type="photo" name="photo" class="form-control" value="{{ $response['data']['photo'] }}" id="exampleInputEmail1" aria-describedby="emailHelp">
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>

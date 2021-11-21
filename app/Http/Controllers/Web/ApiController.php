@@ -48,7 +48,7 @@ class ApiController extends Controller
 
     public function editApi($user_id)
     {
-        $response = Http::get('https://latihan-api-rsz.herokuapp.com/api/edit/' . $user_id)->json();
+        $response = Http::get('https://latihan-api-rsz.herokuapp.com/api/getuser/' . $user_id)->json();
         return view('Api.edit', compact('response'));
     }
 
@@ -58,7 +58,7 @@ class ApiController extends Controller
 
         // $response = Http::post($url . $id, $request->input())->json();
 
-        $response = Http::post('https://latihan-api-rsz.herokuapp.com/api/edit/' . $user_id, $request->input())->json();
+        $response = Http::put('https://latihan-api-rsz.herokuapp.com/api/edit/' . $user_id, $request->input())->json();
 
         if($response['status'] == 0){
             return view('Api.login',compact('response'));

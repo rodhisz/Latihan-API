@@ -24,7 +24,7 @@ use Illuminate\Support\Facades\Route;
 Route::post('/registrasi', [AuthController::class, 'registrasi']);
 Route::post('/daftar', [AuthController::class, 'daftar']);
 Route::post('/login', [AuthController::class, 'login']);
-Route::put('/edit/{id}', [AuthController::class, 'editProfile']);
+Route::put('/edit/{user_id}', [AuthController::class, 'editProfile']);
 Route::put('/editpassword/{id}', [AuthController::class, 'editPassword']);
 Route::get('/getuser/{id}', [AuthController::class, 'getUser']);
 Route::get('/alluser', [AuthController::class, 'getAllUser']);
