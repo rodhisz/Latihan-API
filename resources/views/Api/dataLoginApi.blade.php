@@ -61,9 +61,6 @@
 
     <div class="container custom">
         <p class="halo text-center">{{$response['pesan']}}</p>
-        @if($response['status'] == 1)
-            <div class="alert alert-danger">{{$response['massage']}}</div>
-        @endif
         <div class="card">
             <img src="https://media.istockphoto.com/photos/japanese-male-businessman-working-from-home-in-plain-clothes-picture-id1275746020?b=1&k=20&m=1275746020&s=170667a&w=0&h=DDZBhVjGsZ-FFdrTXZHk1WvA_vakmB8oD_s4C0l3BK0=" alt="John" style="width:100%">
             <h2 class="mt-3">{{$response['data']['name']}}</h2>
