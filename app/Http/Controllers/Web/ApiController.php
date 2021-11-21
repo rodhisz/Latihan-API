@@ -24,9 +24,9 @@ class ApiController extends Controller
             return view('Api.register',compact('response'));
         };
 
-        return dd($response);
+        // return dd($response);
 
-        // return view('Api.dataLoginApi' , compact('response'));
+        return view('Api.dataLoginApi' , compact('response'));
     }
 
     public function loginApi()
@@ -42,8 +42,6 @@ class ApiController extends Controller
         if($response['status'] == 0){
             return view('Api.login',compact('response'));
         };
-
-        // $this->authenticate($request);
 
         return view('Api.dataLoginApi' , compact('response'));
     }
