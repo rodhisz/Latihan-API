@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-    <title>Kumpulan Doa Harian</title>
+    <title>Data Wisata</title>
 
     <style>
         .pading{
@@ -21,34 +21,51 @@
         .tbl{
             vertical-align: middle;
         }
+        .card {
+        border: none;
+        }
+
+        .card:hover {
+            color: black;
+            /* box-shadow: 5px 10px #474a4ecf; */
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
     </style>
   </head>
   <body>
     <div class="container text-center pading">
-        <h1>Kumpulan Doa-Doa Harian</h1>
-        <a href="/">Back to Home</a>
-        <p class="mt-3">Latihan get data "kumpulan doa-doa harian" dari API Public</p>
+        <h1>Data Wisata</h1>
+        <a href="/ictapi">Back to ICT API</a>
+        <p class="mt-3">Latihan get data wisata dari API ICT</p>
     </div>
 
-    <div class="container pd">
-        <table class="table">
+    <div class="card container mt-4 py-4 px-5">
+        <table class="table table-striped">
             <thead class="text-center">
-                <tr>
+                <tr class="tbl">
                     <th scope="col">#</th>
-                    <th scope="col">Doa</th>
-                    <th scope="col">Ayat</th>
-                    <th scope="col">Latin</th>
-                    <th scope="col">Arti</th>
+                    <th scope="col">Gambar</th>
+                    <th scope="col">Nama Wisata</th>
+                    <th scope="col">Waktu Buka</th>
+                    <th scope="col">Harga</th>
+                    <th scope="col">Kota</th>
+                    <th scope="col">Provinsi</th>
+                    <th scope="col">Latitude</th>
+                    <th scope="col">Longitude</th>
                 </tr>
             </thead>
             <tbody class="text-center ">
-                @foreach ($response as $res)
+                @foreach ($response as $wisata)
                 <tr class="tbl">
-                    <td>{{$res['id']}}</td>
-                    <td><strong>{{$res['doa']}}</strong></td>
-                    <td>{{$res['ayat']}}</td>
-                    <td>{{$res['latin']}}</td>
-                    <td>{{$res['artinya']}}</td>
+                    <td>{{$wisata['id']}}</td>
+                    <td><img width="150px" class="rounded" src="{{$wisata['image']}}" alt=""></td>
+                    <td>{{$wisata['nama_wisata']}}</td>
+                    <td>{{$wisata['waktu_buka']}}</td>
+                    <td>Rp. {{number_format($wisata['harga'])}}</td>
+                    <td>{{$wisata['kota']}}</td>
+                    <td>{{$wisata['provinsi']}}</td>
+                    <td>{{$wisata['latitude']}}</td>
+                    <td>{{$wisata['longitude']}}</td>
                 </tr>
                 @endforeach
             </tbody>

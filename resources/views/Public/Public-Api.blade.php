@@ -8,7 +8,8 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-    <title>Data Wisata</title>
+    <title>Latihan API</title>
+    <link rel="shortcut icon" href="https://media.istockphoto.com/vectors/api-icon-vector-sign-and-symbol-isolated-on-white-background-api-logo-vector-id1025651460?k=20&m=1025651460&s=170667a&w=0&h=_699JucZH9fWDfk-4PyNnFhXK--fXXxJQ0XyAgA60wk=" type="image/x-icon">
 
     <style>
         .pading{
@@ -21,46 +22,43 @@
         .tbl{
             vertical-align: middle;
         }
+        .ancor {
+        text-decoration: none;
+        color: black;
+        }
+        .card {
+        border: none;
+        }
+
+        .card:hover {
+            color: black;
+            /* box-shadow: 5px 10px #474a4ecf; */
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
     </style>
   </head>
   <body>
     <div class="container text-center pading">
-        <h1>Data Wisata</h1>
+        <h1>Public API</h1>
         <a href="/">Back to Home</a>
-        <p class="mt-3">Latihan get data wisata dari API ICT</p>
     </div>
 
-    <div class="container pd">
-        <table class="table table-striped">
-            <thead class="text-center">
-                <tr class="tbl">
-                    <th scope="col">#</th>
-                    <th scope="col">Gambar</th>
-                    <th scope="col">Nama Wisata</th>
-                    <th scope="col">Waktu Buka</th>
-                    <th scope="col">Harga</th>
-                    <th scope="col">Kota</th>
-                    <th scope="col">Provinsi</th>
-                    <th scope="col">Latitude</th>
-                    <th scope="col">Longitude</th>
-                </tr>
-            </thead>
-            <tbody class="text-center ">
-                @foreach ($response as $wisata)
-                <tr class="tbl">
-                    <td>{{$wisata['id']}}</td>
-                    <td><img width="150px" class="rounded" src="{{$wisata['image']}}" alt=""></td>
-                    <td>{{$wisata['nama_wisata']}}</td>
-                    <td>{{$wisata['waktu_buka']}}</td>
-                    <td>Rp. {{number_format($wisata['harga'])}}</td>
-                    <td>{{$wisata['kota']}}</td>
-                    <td>{{$wisata['provinsi']}}</td>
-                    <td>{{$wisata['latitude']}}</td>
-                    <td>{{$wisata['longitude']}}</td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
+
+    <div class="d-flex justify-content-center align-items-center" style="padding-top: 100px;">
+        <div class="row text-center">
+
+            <div class="col d-flex justify-content-center">
+                <a class="ancor" href="/doa">
+                    <div class="card latar" style="width: 18rem;">
+                        <img src="https://media.istockphoto.com/photos/muslim-friday-mass-prayer-in-turkey-picture-id496347824?b=1&k=20&m=496347824&s=170667a&w=0&h=-RAde6GlkIszAU6tfJlikmjjuXVPEMS6-uwyaZeJ8dQ=" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-text">Doa</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+        </div>
     </div>
 
     <!-- Optional JavaScript; choose one of the two! -->

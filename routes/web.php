@@ -21,23 +21,34 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::get('/myapi', function () {
+    return view('Api.myApi');
+});
+
+Route::get('/ictapi', function () {
+    return view('ICT.ICT-Api');
+});
+
+Route::get('/publicapi', function () {
+    return view('Public.Public-Api');
+});
 
 Route::get('/doa', [DoaController::class, 'doa'])->name('doa');
 
-Route::get('/post-data', [DoaController::class, 'postData']);
-Route::post('/posting', [DoaController::class, 'posting'])->name('posting');
-Route::get('/kategori', [DoaController::class, 'kategori'])->name('kategori');
-Route::post('/add-kategori', [DoaController::class, 'addKategori'])->name('addKategori');
-
-Route::get('/wisata', [WisataController::class, 'wisata'])->name('wisata');
-
+Route::get('/post-data', [LoginController::class, 'postData']);
+Route::post('/posting', [LoginController::class, 'posting'])->name('posting');
+Route::get('/kategori', [LoginController::class, 'kategori'])->name('kategori');
+Route::post('/add-kategori', [LoginController::class, 'addKategori'])->name('addKategori');
 Route::get('/login', [LoginController::class, 'login'])->name('login');
 Route::post('/datalogin', [LoginController::class, 'dataLogin'])->name('logindata');
 
-Route::get('/myapi', [ApiController::class, 'myApi'])->name('myapi');
+Route::get('/wisata', [WisataController::class, 'wisata'])->name('wisata');
+
 Route::get('/registerapi', [ApiController::class, 'registerApi'])->name('registerapi');
 Route::post('/daftarapi', [ApiController::class, 'daftarApi'])->name('daftarapi');
 Route::get('/loginapi', [ApiController::class, 'loginApi'])->name('loginapi');
 Route::post('/masukapi', [ApiController::class, 'masukApi'])->name('masukapi');
+Route::get('/editapi', [ApiController::class, 'editApi'])->name('editapi');
+Route::put('/edituserapi/{id}', [ApiController::class, 'editUserApi'])->name('edituserapi');
 
 

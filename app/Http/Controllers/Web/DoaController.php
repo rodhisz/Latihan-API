@@ -12,30 +12,6 @@ class DoaController extends Controller
     {
         $response = Http::get('https://doa-doa-api-ahmadramadhan.fly.dev/api')->json();
         // dd($response);
-        return view('home', compact('response'));
-    }
-
-    public function postData()
-    {
-        return view('post-data');
-    }
-
-    public function posting(Request $request)
-    {
-        // dd($request);
-        Http::post('https://ictjuara.000webhostapp.com/api/regis', $request->input());
-        return redirect()->back();
-    }
-
-    public function kategori(Request $request)
-    {
-        return view('kategori');
-    }
-
-    public function addKategori(Request $request)
-    {
-        // dd($request);
-        Http::post('https://ictjuara.000webhostapp.com/api/add-kategori', $request->input());
-        return redirect()->back();
+        return view('Public.doa', compact('response'));
     }
 }

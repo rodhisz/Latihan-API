@@ -8,42 +8,51 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-    <title>Login</title>
+    <title>Kumpulan Doa Harian</title>
 
     <style>
         .pading{
             padding-top: 100px
         }
-
-        .custom{
+        .pd{
             padding-top: 50px;
-            width: 40%;
+            padding-bottom: 100px
+        }
+        .tbl{
+            vertical-align: middle;
         }
     </style>
   </head>
   <body>
     <div class="container text-center pading">
-        <h1>Login</h1>
-        <a href="/">Back to Home</a>
-        <p class="mt-3">Latihan login dari API ICT</p>
+        <h1>Kumpulan Doa-Doa Harian</h1>
+        <a href="/publicapi">Back to Public API</a>
+        <p class="mt-3">Latihan get data "kumpulan doa-doa harian" dari API Public</p>
     </div>
 
-    <div class="container custom">
-        @if($response['status'] == 0)
-            <div class="alert alert-danger">{{$response['message']}}</div>
-        @endif
-        <form action="/datalogin" method="POST">
-            @csrf
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Email address</label>
-                <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-            </div>
-            <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input type="password" name="password" class="form-control" id="exampleInputPassword1">
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
+    <div class="container pd">
+        <table class="table">
+            <thead class="text-center">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Doa</th>
+                    <th scope="col">Ayat</th>
+                    <th scope="col">Latin</th>
+                    <th scope="col">Arti</th>
+                </tr>
+            </thead>
+            <tbody class="text-center ">
+                @foreach ($response as $res)
+                <tr class="tbl">
+                    <td>{{$res['id']}}</td>
+                    <td><strong>{{$res['doa']}}</strong></td>
+                    <td>{{$res['ayat']}}</td>
+                    <td>{{$res['latin']}}</td>
+                    <td>{{$res['artinya']}}</td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
     </div>
 
     <!-- Optional JavaScript; choose one of the two! -->

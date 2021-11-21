@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-    <title>Kategori</title>
+    <title>Login</title>
 
     <style>
         .pading{
@@ -23,17 +23,24 @@
   </head>
   <body>
     <div class="container text-center pading">
-        <h1>Kategori</h1>
-        <a href="/">Back to Home</a>
-        <p class="mt-3">Latihan post data kategori ke API ICT</p>
+        <h1>Login</h1>
+        <a href="/ictapi">Back to ICT API</a>
+        <p class="mt-3">Latihan login dari API ICT</p>
     </div>
 
     <div class="container custom">
-        <form action="/add-kategori" method="POST">
+        @if($response['status'] == 0)
+            <div class="alert alert-danger">{{$response['message']}}</div>
+        @endif
+        <form action="/datalogin" method="POST">
             @csrf
             <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Nama Kategori</label>
-                <input type="Text" name="nama_kategori" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <label for="exampleInputEmail1" class="form-label">Email address</label>
+                <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <input type="password" name="password" class="form-control" id="exampleInputPassword1">
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>

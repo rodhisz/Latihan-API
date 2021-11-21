@@ -16,7 +16,7 @@
         }
 
         .custom{
-            padding-top: 20px;
+            padding-top: 50px;
             width: 40%;
         }
         .card {
@@ -47,30 +47,23 @@
         button:hover, a:hover {
         opacity: 0.7;
         }
-        .halo{
-            font-size: 20px;
-        }
     </style>
   </head>
   <body>
     <div class="container text-center pading">
         <h1>Data Login</h1>
-        <a href="/myapi">Back to My API</a>
-        <p class="mt-3">Data login user dari API Sendiri</p>
+        <a href="/ictapi">Back to ICT API</a>
+        <p class="mt-3">Data login user dari API</p>
     </div>
 
     <div class="container custom">
-        <p class="halo text-center">{{$response['pesan']}}</p>
+        <p class="text-center">{{$response['message']}}</p>
         <div class="card">
-            <img src="https://media.istockphoto.com/photos/japanese-male-businessman-working-from-home-in-plain-clothes-picture-id1275746020?b=1&k=20&m=1275746020&s=170667a&w=0&h=DDZBhVjGsZ-FFdrTXZHk1WvA_vakmB8oD_s4C0l3BK0=" alt="John" style="width:100%">
-            <h2 class="mt-3">{{$response['data']['name']}}</h2>
-            <p class="title">{{$response['data']['email']}}</p>
-            <p>Alamat : {{$response['data']['alamat']}}</p>
-            <p>Telp : {{$response['data']['telp']}}</p>
+            <img src="https://media.istockphoto.com/photos/young-man-using-smart-phone-at-home-picture-id1278009593?b=1&k=20&m=1278009593&s=170667a&w=0&h=uCTPNkqE--LHcrjm14dtmg_NeOjLqi3_9hQfeM9xrVg=" alt="John" style="width:100%">
+            <h2 class="mt-3">{{$response['data']['email']}}</h2>
+            <p class="title">{{$response['data']['city']}}</p>
             <p>Your ID : {{$response['data']['id']}}</p>
         </div>
-
-        <a class="btn btn primary card" href="/editapi">Edit Profile</a>
     </div>
 
     <!-- Optional JavaScript; choose one of the two! -->

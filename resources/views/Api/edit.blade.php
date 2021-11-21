@@ -16,24 +16,25 @@
         }
 
         .custom{
-            padding-top: 50px;
+            padding-top: 20px;
             width: 40%;
         }
     </style>
   </head>
   <body>
     <div class="container text-center pading">
-        <h1>Register to My API</h1>
+        <h1>Edit User from My API</h1>
         <a href="/myapi">Back to My API</a>
-        <p class="mt-3">Latihan Registrasi user ke API Sendiri</p>
+        <p class="mt-3">Latihan Edit user dari API Sendiri</p>
     </div>
 
     <div class="container custom">
         @if($response['status'] == 0)
-            <div class="alert alert-danger">{{$response['message']}}</div>
+            <div class="alert alert-danger">{{$response['pesan']}}</div>
         @endif
-        <form action="/daftarapi" method="POST">
+        <form action="/edituserapi/{id}" method="post">
             @csrf
+            @method('PUT')
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Name</label>
                 <input type="name" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
@@ -43,12 +44,16 @@
                 <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
             </div>
             <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+                <label for="exampleInputEmail1" class="form-label">Alamat</label>
+                <input type="alamat" name="alamat" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
             </div>
             <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Password Confirmation</label>
-                <input type="password" name="password_confirmation" class="form-control" id="exampleInputPassword1">
+                <label for="exampleInputEmail1" class="form-label">Telp</label>
+                <input type="telp" name="telp" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Photo</label>
+                <input type="photo" name="photo" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>

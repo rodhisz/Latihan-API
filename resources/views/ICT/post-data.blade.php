@@ -24,7 +24,7 @@
   <body>
     <div class="container text-center pading">
         <h1>Registrasi</h1>
-        <a href="/">Back to Home</a>
+        <a href="/ictapi">Back to ICT API</a>
         <p class="mt-3">Latihan post data user ke API ICT</p>
     </div>
 

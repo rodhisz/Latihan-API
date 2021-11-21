@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-    <title>Data Login</title>
+    <title>Kategori</title>
 
     <style>
         .pading{
@@ -19,51 +19,24 @@
             padding-top: 50px;
             width: 40%;
         }
-        .card {
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-        max-width: 300px;
-        margin: auto;
-        text-align: center;
-        }
-
-        .title {
-        color: grey;
-        font-size: 20px;
-        }
-
-        button {
-        border: none;
-        outline: 0;
-        display: inline-block;
-        padding: 8px;
-        color: white;
-        background-color: #000;
-        text-align: center;
-        cursor: pointer;
-        width: 100%;
-        font-size: 18px;
-        }
-
-        button:hover, a:hover {
-        opacity: 0.7;
-        }
     </style>
   </head>
   <body>
     <div class="container text-center pading">
-        <h1>Data Login</h1>
-        <a href="/">Back to Home</a>
-        <p class="mt-3">Data login user dari API</p>
+        <h1>Kategori</h1>
+        <a href="/ictapi">Back to ICT API</a>
+        <p class="mt-3">Latihan post data kategori ke API ICT</p>
     </div>
 
     <div class="container custom">
-        <p class="text-center">{{$response['message']}}</p>
-        <div class="card">
-            <img src="https://media.istockphoto.com/photos/young-man-using-smart-phone-at-home-picture-id1278009593?b=1&k=20&m=1278009593&s=170667a&w=0&h=uCTPNkqE--LHcrjm14dtmg_NeOjLqi3_9hQfeM9xrVg=" alt="John" style="width:100%">
-            <h2 class="mt-3">{{$response['data']['email']}}</h2>
-            <p class="title">{{$response['data']['city']}}</p>
-            <p>Your ID : {{$response['data']['id']}}</p>
-        </div>
+        <form action="/add-kategori" method="POST">
+            @csrf
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Nama Kategori</label>
+                <input type="Text" name="nama_kategori" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
     </div>
 
     <!-- Optional JavaScript; choose one of the two! -->

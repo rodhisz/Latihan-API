@@ -201,6 +201,29 @@ class AuthController extends Controller
         ],Response::HTTP_OK);
     }
 
+    public function getUser($id)
+    {
+        $user = User::find($id);
+
+        return response()->json([
+            'status'    => 1,
+            'message'   => "Berhasil Mendapatkan User",
+            'result'    => $user
+        ], Response::HTTP_NOT_FOUND);
+    }
+
+    public function getAllUser()
+    {
+        $user = User::all();
+
+        return response()->json([
+            'status'    => 1,
+            'message'   => "Berhasil Mendapatkan Semua Data User",
+            'result'    => $user
+        ], Response::HTTP_NOT_FOUND);
+
+    }
+
     public function responError($sts, $pesan)
     {
         return response()->json([

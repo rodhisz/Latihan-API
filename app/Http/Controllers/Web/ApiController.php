@@ -4,14 +4,11 @@ namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 
 class ApiController extends Controller
 {
-    public function myApi()
-    {
-        return view('Api.myApi');
-    }
 
     public function registerApi()
     {
@@ -21,15 +18,13 @@ class ApiController extends Controller
 
     public function daftarApi(Request $request)
     {
-        $response = Http::post('https://latihan-api-rsz.herokuapp.com/api/register', $request->input())->json();
+        $response = Http::post('https://latihan-api-rsz.herokuapp.com/api/registrasi', $request->input())->json();
 
-        $data = $response['data'];
-
-        if($data['status'] == 0){
+        if($response['status'] == 0){
             return view('Api.register',compact('response'));
         };
 
-        return view('Api.dataLoginApi' , compact('response'));
+        return view('Api.Login' , compact('response'));
     }
 
     public function loginApi()
@@ -46,8 +41,50 @@ class ApiController extends Controller
             return view('Api.login',compact('response'));
         };
 
+        // $this->authenticate($request);
+
         return view('Api.dataLoginApi' , compact('response'));
     }
+
+    public function editApi()
+    {
+        $response['status'] = 1;
+        return view('Api.edit', compact('response'));
+    }
+
+    public function editUserApi(Request $request)
+    {
+        // $url = (env('APP_ENV') == 'local') ? env('APP_URL') . ":8000/api/edit/" . $id : env('APP_URL') . "/api/edit/" . $id;
+
+        // $response = Http::post($url . $id, $request->input())->json();
+
+        $response = Http::post('https://latihan-api-rsz.herokuapp.com/api/edit/' . $request->user()->id, $request->input())->json();
+
+
+        if($response['status'] == 0){
+            return view('Api.login',compact('response'));
+        };
+
+        return view('Api.login' , compact('response'));
+    }
+
+    // public function authenticate(Request $request)
+    // {
+    //     $credentials = $request->validate([
+    //         'email' => ['required', 'email'],
+    //         'password' => ['required'],
+    //     ]);
+
+    //     if (Auth::attempt($credentials)) {
+    //         $request->session()->regenerate();
+
+    //         return redirect()->back();
+    //     }
+
+    //     return back()->withErrors([
+    //         'email' => 'The provided credentials do not match our records.',
+    //     ]);
+    // }
 
 
 }
